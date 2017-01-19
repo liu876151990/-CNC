@@ -1,0 +1,845 @@
+'定义固高卡IO，按脚位定义
+dim GTSIN0 as integer
+dim GTSIN1 as integer
+dim GTSIN2 as integer
+dim GTSIN3 as integer
+dim GTSIN4 as integer
+dim GTSIN5 as integer
+dim GTSIN6 as integer
+dim GTSIN7 as integer
+dim GTSIN8 as integer
+dim GTSIN9 as integer
+dim GTSIN10 as integer
+dim GTSIN11 as integer
+dim GTSIN12 as integer
+dim GTSIN13 as integer
+dim GTSIN14 as integer
+dim GTSIN15 as integer
+
+dim GTSOUT0 as integer
+dim GTSOUT1 as integer
+dim GTSOUT2 as integer
+dim GTSOUT3 as integer
+dim GTSOUT4 as integer
+dim GTSOUT5 as integer
+dim GTSOUT6 as integer
+dim GTSOUT7 as integer
+dim GTSOUT8 as integer
+dim GTSOUT9 as integer
+dim GTSOUT10 as integer
+dim GTSOUT11 as integer
+dim GTSOUT12 as integer
+dim GTSOUT13 as integer
+dim GTSOUT14 as integer
+dim GTSOUT15 as integer
+
+'更新GTS卡输入输出口变量
+function UpdateGTSIO()
+	dim nIn as integer
+	GetInput(nIn)
+	GTSIN0=nIn and 1
+	GTSIN1=(nIn shr 1) and 1
+	GTSIN2=(nIn shr 2) and 1
+	GTSIN3=(nIn shr 3) and 1
+	GTSIN4=(nIn shr 4) and 1
+	GTSIN5=(nIn shr 5) and 1
+	GTSIN6=(nIn shr 6) and 1
+	GTSIN7=(nIn shr 7) and 1
+	GTSIN8=(nIn shr 8) and 1
+	GTSIN9=(nIn shr 9) and 1
+	GTSIN10=(nIn shr 10) and 1
+	GTSIN11=(nIn shr 11) and 1
+	GTSIN12=(nIn shr 12) and 1
+	GTSIN13=(nIn shr 13) and 1
+	GTSIN14=(nIn shr 14) and 1
+	GTSIN15=(nIn shr 15) and 1
+	
+	dim nOut as integer
+	GetOutput(nOut)
+	GTSOUT0=nOut and 1
+	GTSOUT1=(nOut shr 1) and 1
+	GTSOUT2=(nOut shr 2) and 1
+	GTSOUT3=(nOut shr 3) and 1
+	GTSOUT4=(nOut shr 4) and 1
+	GTSOUT5=(nOut shr 5) and 1
+	GTSOUT6=(nOut shr 6) and 1
+	GTSOUT7=(nOut shr 7) and 1
+	GTSOUT8=(nOut shr 8) and 1
+	GTSOUT9=(nOut shr 9) and 1
+	GTSOUT10=(nOut shr 10) and 1
+	GTSOUT11=(nOut shr 11) and 1
+	GTSOUT12=(nOut shr 12) and 1
+	GTSOUT13=(nOut shr 13) and 1
+	GTSOUT14=(nOut shr 14) and 1
+	GTSOUT15=(nOut shr 15) and 1
+end function
+
+
+
+'定义TK卡IO，按脚位定义
+dim TKIN0 as integer
+dim TKIN1 as integer
+dim TKIN2 as integer
+dim TKIN3 as integer
+dim TKIN4 as integer
+dim TKIN5 as integer
+dim TKIN6 as integer
+dim TKIN7 as integer
+dim TKIN8 as integer
+dim TKIN9 as integer
+dim TKIN10 as integer
+dim TKIN11 as integer
+dim TKIN12 as integer
+dim TKIN13 as integer
+dim TKIN14 as integer
+dim TKIN15 as integer
+dim TKIN16 as integer
+dim TKIN17 as integer
+dim TKIN18 as integer
+dim TKIN19 as integer
+dim TKIN20 as integer
+dim TKIN21 as integer
+dim TKIN22 as integer
+dim TKIN23 as integer
+dim TKIN24 as integer
+dim TKIN25 as integer
+dim TKIN26 as integer
+dim TKIN27 as integer
+dim TKIN28 as integer
+dim TKIN29 as integer
+dim TKIN30 as integer
+dim TKIN31 as integer
+
+
+dim TKOUT0 as integer
+dim TKOUT1 as integer
+dim TKOUT2 as integer
+dim TKOUT3 as integer
+dim TKOUT4 as integer
+dim TKOUT5 as integer
+dim TKOUT6 as integer
+dim TKOUT7 as integer
+dim TKOUT8 as integer
+dim TKOUT9 as integer
+dim TKOUT10 as integer
+dim TKOUT11 as integer
+dim TKOUT12 as integer
+dim TKOUT13 as integer
+dim TKOUT14 as integer
+dim TKOUT15 as integer
+dim TKOUT16 as integer
+dim TKOUT17 as integer
+dim TKOUT18 as integer
+dim TKOUT19 as integer
+dim TKOUT20 as integer
+dim TKOUT21 as integer
+dim TKOUT22 as integer
+dim TKOUT23 as integer
+dim TKOUT24 as integer
+dim TKOUT25 as integer
+dim TKOUT26 as integer
+dim TKOUT27 as integer
+dim TKOUT28 as integer
+dim TKOUT29 as integer
+dim TKOUT30 as integer
+dim TKOUT31 as integer
+
+'更新TK卡输入输出口变量
+function UpdateTKIO()
+	dim nIn as integer
+	HL_GetInPut(nIn)
+	TKIN0=nIn and 1
+	TKIN1=(nIn shr 1) and 1
+	TKIN2=(nIn shr 2) and 1
+	TKIN3=(nIn shr 3) and 1
+	TKIN4=(nIn shr 4) and 1
+	TKIN5=(nIn shr 5) and 1
+	TKIN6=(nIn shr 6) and 1
+	TKIN7=(nIn shr 7) and 1
+	TKIN8=(nIn shr 8) and 1
+	TKIN9=(nIn shr 9) and 1
+	TKIN10=(nIn shr 10) and 1
+	TKIN11=(nIn shr 11) and 1
+	TKIN12=(nIn shr 12) and 1
+	TKIN13=(nIn shr 13) and 1
+	TKIN14=(nIn shr 14) and 1
+	TKIN15=(nIn shr 15) and 1
+	TKIN16=(nIn shr 16) and 1
+	TKIN17=(nIn shr 17) and 1
+	TKIN18=(nIn shr 18) and 1
+	TKIN19=(nIn shr 19) and 1
+	TKIN20=(nIn shr 20) and 1
+	TKIN21=(nIn shr 21) and 1
+	TKIN22=(nIn shr 22) and 1
+	TKIN23=(nIn shr 23) and 1
+	TKIN24=(nIn shr 24) and 1
+	TKIN25=(nIn shr 25) and 1
+	TKIN26=(nIn shr 26) and 1
+	TKIN27=(nIn shr 27) and 1
+	TKIN28=(nIn shr 28) and 1
+	TKIN29=(nIn shr 29) and 1
+	TKIN30=(nIn shr 30) and 1
+	TKIN31=(nIn shr 31) and 1
+	
+	dim nOut as integer
+	HL_GetOutPut(nOut)
+	TKOUT0=nOut and 1
+	TKOUT1=(nOut shr 1) and 1
+	TKOUT2=(nOut shr 2) and 1
+	TKOUT3=(nOut shr 3) and 1
+	TKOUT4=(nOut shr 4) and 1
+	TKOUT5=(nOut shr 5) and 1
+	TKOUT6=(nOut shr 6) and 1
+	TKOUT7=(nOut shr 7) and 1
+	TKOUT8=(nOut shr 8) and 1
+	TKOUT9=(nOut shr 9) and 1
+	TKOUT10=(nOut shr 10) and 1
+	TKOUT11=(nOut shr 11) and 1
+	TKOUT12=(nOut shr 12) and 1
+	TKOUT13=(nOut shr 13) and 1
+	TKOUT14=(nOut shr 14) and 1
+	TKOUT15=(nOut shr 15) and 1
+	TKOUT16=(nOut shr 16) and 1
+	TKOUT17=(nOut shr 17) and 1
+	TKOUT18=(nOut shr 18) and 1
+	TKOUT19=(nOut shr 19) and 1
+	TKOUT20=(nOut shr 20) and 1
+	TKOUT21=(nOut shr 21) and 1
+	TKOUT22=(nOut shr 22) and 1
+	TKOUT23=(nOut shr 23) and 1
+	TKOUT24=(nOut shr 24) and 1
+	TKOUT25=(nOut shr 25) and 1
+	TKOUT26=(nOut shr 26) and 1
+	TKOUT27=(nOut shr 27) and 1
+	TKOUT28=(nOut shr 28) and 1
+	TKOUT29=(nOut shr 29) and 1
+	TKOUT30=(nOut shr 30) and 1
+	TKOUT31=(nOut shr 31) and 1
+end function
+
+
+'定义STK卡IO，按脚位定义
+dim INLMT0_NEG as integer
+dim INLMT0_POS as integer
+dim INLMT1_NEG as integer
+dim INLMT2_NEG as integer
+dim INLMT3_NEG as integer
+dim INLMT1_POS as integer
+dim INLMT2_POS as integer
+dim INLMT3_POS as integer
+dim INHOME0 as integer
+dim INHOME1 as integer
+dim INHOME2 as integer
+dim INHOME3 as integer
+dim INSTOP0 as integer
+dim INSTOP1 as integer
+dim INSTOP2 as integer
+dim INSTOP3 as integer
+dim INPAUSE0 as integer
+dim INPAUSE1 as integer
+dim INPAUSE2 as integer
+dim INPAUSE3 as integer
+dim INAUTOMANUAL as integer
+dim INAXSEL0 as integer
+dim INAXSEL1 as integer
+dim INVESEL0 as integer
+dim INVESEL1 as integer
+dim INHOME as integer
+dim INEXI0 as integer
+dim INEXI1 as integer
+dim INEXI2 as integer
+dim INEXI3 as integer
+dim INMOVEUP as integer
+dim INMOVEDOWN as integer
+
+
+dim OUTREADY as integer
+dim OUTEXO0 as integer
+dim OUTEXO1 as integer
+dim OUTEXO2 as integer
+dim OUTEXO3 as integer
+dim OUTEXO4 as integer
+dim OUTEXO5 as integer
+dim OUTEXO6 as integer
+
+'更新STK卡输入输出口变量
+function UpdateSTKIO()
+	dim nIn as integer
+	HL_GetMotorDi(nIn)
+	INLMT0_NEG =nIn and 1
+	INLMT0_POS =(nIn shr 1) and 1
+	INLMT1_NEG =(nIn shr 2) and 1
+	INLMT2_NEG =(nIn shr 3) and 1
+	INLMT3_NEG =(nIn shr 4) and 1
+	INLMT1_POS =(nIn shr 5) and 1
+	INLMT2_POS =(nIn shr 6) and 1
+	INLMT3_POS =(nIn shr 7) and 1
+	INHOME0 =(nIn shr 8) and 1
+	INHOME1 =(nIn shr 9) and 1
+	INHOME2 =(nIn shr 10) and 1
+	INHOME3 =(nIn shr 11) and 1
+	INSTOP0 =(nIn shr 12) and 1
+	INSTOP1 =(nIn shr 13) and 1
+	INSTOP2 =(nIn shr 14) and 1
+	INSTOP3 =(nIn shr 15) and 1
+	INPAUSE0 =(nIn shr 16) and 1
+	INPAUSE1 =(nIn shr 17) and 1
+	INPAUSE2 =(nIn shr 18) and 1
+	INPAUSE3 =(nIn shr 19) and 1
+	INAUTOMANUAL =(nIn shr 20) and 1
+	INAXSEL0 =(nIn shr 21) and 1
+	INAXSEL1 =(nIn shr 22) and 1
+	INVESEL0 =(nIn shr 23) and 1
+	INVESEL1 =(nIn shr 24) and 1
+	INHOME =(nIn shr 25) and 1
+	INEXI0 =(nIn shr 26) and 1
+	INEXI1 =(nIn shr 27) and 1
+	INEXI2 =(nIn shr 28) and 1
+	INEXI3 =(nIn shr 29) and 1
+	INMOVEUP =(nIn shr 30) and 1
+	INMOVEDOWN =(nIn shr 31) and 1
+	
+	dim nOut as integer
+	HL_GetMotorDo(nOut)
+	OUTREADY =nOut and 1
+	OUTEXO0 =(nOut shr 1) and 1
+	OUTEXO1 =(nOut shr 2) and 1
+	OUTEXO2 =(nOut shr 3) and 1
+	OUTEXO3 =(nOut shr 4) and 1
+	OUTEXO4 =(nOut shr 5) and 1
+	OUTEXO5 =(nOut shr 6) and 1
+	OUTEXO6 =(nOut shr 7) and 1
+end function
+
+
+
+'检测工位传感是否正确
+dim nPos0Code as integer
+dim nPos1Code as integer
+dim nPos2Code as integer
+dim nPos3Code as integer
+dim g_nPos as integer
+
+function ResetPos()
+	g_nPos=0
+	nPos1Code=-1
+	nPos2Code=-1
+	nPos3Code=-1
+	nPos0Code=-1
+end function
+
+function CheckPos(nPosCode as integer) as integer
+	dim nRtn as integer
+	nRtn=1
+	if g_nPos=0 then
+		if nPos0Code=-1 then
+			nPos0Code=nPosCode
+		else if nPos0Code<>nPosCode then
+			nRtn=0 '报警
+			nPos0Code=nPosCode
+		end if	
+	end if
+	
+	if g_nPos=1 then
+		if nPos1Code=-1 then
+			nPos1Code=nPosCode
+		else if nPos1Code<>nPosCode then
+			nRtn=0 '报警
+			nPos1Code=nPosCode
+		end if	
+	end if
+	
+	if g_nPos=2 then
+		if nPos2Code=-1 then
+			nPos2Code=nPosCode
+		else if nPos2Code<>nPosCode then
+			nRtn=0 '报警
+			nPos2Code=nPosCode
+		end if	
+	end if
+	
+	if g_nPos=3 then
+		if nPos3Code=-1 then
+			nPos3Code=nPosCode
+		else if nPos3Code<>nPosCode then
+			nRtn=0 '报警
+			nPos3Code=nPosCode
+		end if	
+	end if
+	
+	
+	
+	
+	'四个值不能相同
+'0和1相同且不等于-1，表示出错
+	if nPos0Code=nPos1Code then
+		if nPos0Code<>-1 then
+			nRtn =0
+		end if
+	end if
+	
+	if nPos0Code=nPos2Code then
+		if nPos0Code<>-1 then
+			nRtn =0
+		end if
+	end if
+	
+	
+	if nPos0Code=nPos3Code then
+		if nPos3Code<>-1 then
+			nRtn =0
+		end if
+	end if
+	
+	
+	if nPos1Code=nPos2Code then
+		if nPos1Code<>-1 then
+			nRtn =0
+		end if
+	end if
+	
+	if nPos1Code=nPos3Code then
+		if nPos1Code<>-1 then
+			nRtn =0
+		end if
+	end if
+	
+	if nPos2Code=nPos3Code then
+		if nPos2Code<>-1 then
+			nRtn =0
+		end if
+	end if
+	
+	
+	
+	if nRtn=0 then
+		infobox("工位错误")
+	end if
+	
+	g_nPos=g_nPos+1
+	
+	if g_nPos=4 then
+		g_nPos=0
+	end if
+	
+	return nRtn
+end function
+
+
+function IOWeldDoc(nDoc as integer) 
+
+	SetOutputBit(0,0)
+
+	dim nDocSelBit0 as integer
+	dim nDocSelBit1 as integer
+	dim nDocSelBit2 as integer
+	dim nDocSelBit3 as integer
+'电平取反
+	nDocSelBit0= nDoc and 1
+	nDocSelBit1= (nDoc shr 1) and 1
+	nDocSelBit2= (nDoc shr 2) and 1
+	nDocSelBit3=(nDoc shr 3) and 1
+	if nDocSelBit0=0 then
+		nDocSelBit0=1
+	else 
+		nDocSelBit0=0
+	end if
+	
+	if nDocSelBit1=0 then
+		nDocSelBit1=1
+	else 
+		nDocSelBit1=0
+	end if
+	
+	if nDocSelBit2=0 then
+		nDocSelBit2=1
+	else 
+		nDocSelBit2=0
+	end if
+	
+	if nDocSelBit3=0 then
+		nDocSelBit3=1
+	else 
+		nDocSelBit3=0
+	end if
+	
+	
+	'设置文档号
+	SetOutputBit(1,nDocSelBit0)
+	SetOutputBit(2,nDocSelBit1)
+	SetOutputBit(3,nDocSelBit2)
+	SetOutputBit(4,nDocSelBit3)
+	
+	dim nWeldFinish as integer
+	'设置触发脉冲
+	nWeldFinish=0
+	SetOutputBit(0,1)
+	while nWeldFinish=0
+	
+		UpdateGTSIO()
+		if GTSIN0=0 then
+			nWeldFinish=1
+		end if
+		
+		if IsCompileStop()=1 then
+			break
+		end if
+	
+	end while
+	
+	SetOutputBit(0,0)
+	
+	
+	nWeldFinish=0
+	while nWeldFinish=0
+		UpdateGTSIO()
+		if GTSIN0=1 then
+			nWeldFinish=1
+		end if
+		if IsCompileStop()=1 then
+			break
+		end if
+	end while
+	
+end function
+
+
+function GetPosCode(byref nPosCode as integer)
+	nPosCode=0
+	nPosCode= nPosCode or GTSIN2
+	nPosCode= nPosCode or (GTSIN3 shl 1)
+end function
+
+function CheckStart(bTKIN1 as integer,bTKIN2 as integer)
+	HL_SetOutPut(32,0)
+	HL_SetOutPut(64,0)
+
+	if bTKIN1 =1 then
+	while IsCompileStop()=0
+		UpdateTKIO()
+		if TKOUT5=1 then
+			break
+		end if
+	end while
+	end if
+	if bTKIN2=1 then
+	while IsCompileStop()=0
+		UpdateTKIO()
+		if TKOUT6=1 then
+			break
+		end if
+	end while
+	end if
+end function
+
+
+'气缸运动函数
+'参数 nDirection: 0:进去 1:出来 2:停止
+function MoveGasCylinder(nDirection as integer)
+	dim nMark as integer
+	dim nOut as integer
+	dim nIn as integer
+	dim nStop as integer	
+
+	nMark = 6
+	nOut = 4
+	nIn = 2	
+	nStop = 6
+	if IsCompileStop() = 0 then	
+		if nDirection = 0 then
+			HL_SetMotorDo(nMark,nIn)
+		else if nDirection = 1 then
+			HL_SetMotorDo(nMark,nOut)
+		else
+			HL_SetMotorDo(nMark,nStop)
+		end if
+	end if
+end function
+
+'获取当前电磁阀状态,以便在光幕触发结束后恢复当前状态
+function GetGasCylinder(byref nSts as integer)
+	dim nMark as integer
+	nMark = 6
+
+	UpdateSTKIO()
+	nSts = ((OUTEXO0 shl 1) or (OUTEXO1 shl 2)) and nMark
+end function
+
+'点灯
+function LightLight(nIndex as integer,nValue as integer)
+	HL_SetOutputBit(nIndex,nValue)
+end function
+
+'等待气缸到位
+'nDirection: 0:焊接位 1：上料位
+function WaitGasCylinder(nDirection as integer)
+	dim nSts as integer
+	dim nOut as integer
+	dim nIn as integer
+	nSts = 0
+	nOut = 1
+	nIn = 0
+	if nDirection = 0 then
+		while IsCompileStop() = 0 
+			UpdateSTKIO()
+			if INEXI2 = 0 then 
+				break
+			end if 
+			delay(1)
+			'当光幕触发消失，重新让气缸动起来
+			if INEXI0 = 0 then 
+				MoveGasCylinder(nIn)
+			end if
+		end while	
+	else 
+		while IsCompileStop() = 0
+			UpdateSTKIO()
+			if INEXI1 = 0 then
+				break
+			end if
+			delay(1)
+			'当光幕触发消失，重新让气缸动起来
+			if INEXI0 = 0 then 
+				MoveGasCylinder(nOut)
+			end if
+		end while
+	end if
+end function
+
+'安全门关闭
+function CloseSafetyDoor()
+	UpdateSTKIO()
+	if INEXI1=1 then
+		HL_SetMotorDo(2,2)
+		'delay(2000)
+		HL_SetMotorDo(4,0)
+		delay(200)	
+	end if
+end function
+
+
+'安全门打开
+function OpenSafetyDoor(byref nDoorSts as integer) as integer
+	UpdateSTKIO()
+	if INEXI0=1 then
+		HL_SetMotorDo(2,0)
+		'delay(200)
+		HL_SetMotorDo(4,4)
+		delay(2000)
+	end if
+UpdateSTKIO()
+	if INEXI0 = 0 then 
+		nDoorSts = 0
+	else 
+		nDoorSts = 1
+	end if
+	
+end function
+
+'---------------lc 添加-------------------------------
+function AxisIsStop(nAxis as integer)
+	dim value1 as integer
+	'nAxis = nAxis - 1
+	HL_GetAxisSts(nAxis, value1)
+	value1 = (value1 shr 4) and 1
+	while value1 <> 0
+		HL_GetAxisSts(nAxis, value1)
+		value1 = (value1 shr 4) and 1
+	end while
+end function
+
+function AllAxisIsStop()
+	dim value1 as integer
+	dim value2 as integer
+	
+	value2 = 1
+	while value2 <> 0
+		value2 = 0
+		HL_GetAxisSts(0, value1)
+		value1 = (value1 shr 4) and 1
+		value2 = value2 + value1
+
+		HL_GetAxisSts(0, value1)
+		value1 = (value1 shr 4) and 1
+		value2 = value2 + value1
+
+		HL_GetAxisSts(0, value1)
+		value1 = (value1 shr 4) and 1
+		value2 = value2 + value1
+
+		HL_GetAxisSts(0, value1)
+		value1 = (value1 shr 4) and 1
+		value2 = value2 + value1
+		delay(5000)
+	end while
+
+end function
+
+'输出
+dim door1OperateIO as integer '1工位门打开/关闭对应TK卡IO
+dim door2OperateIO as integer '2工位门打开/关闭对应TK卡IO
+
+function InitIO()
+	door1OperateIO = 5
+	door2OperateIO = 6
+end function
+
+function IsOpen1() as integer'1号工位气缸是否打开 0:没有 1:已打开
+	UpdateTKIO()
+	if TKIN12 = 1 then '气缸到位IO TK卡
+		return 0
+	else
+		return 1 
+	end if
+end function
+
+function IsOpen2() as integer'2号工位气缸是否打开 0:没有 1:已打开
+	UpdateTKIO()
+	if TKIN13 = 1 then '气缸到位IO TK卡
+		return 0
+	else
+		return 1 
+	end if
+end function
+
+function IsClose1() as integer'1号工位气缸是否打开 0:没有 1:已关闭
+	UpdateTKIO()
+	if TKIN10 = 1 then '气缸到位IO TK卡
+		return 0
+	else
+		return 1 
+	end if
+end function
+
+function IsClose2() as integer'2号工位气缸是否打开 0:没有 1:已关闭
+	UpdateTKIO()
+	if TKIN11 = 1 then '气缸到位IO TK卡
+		return 0
+	else
+		return 1 
+	end if
+end function
+
+function OpenGasDoor1()'打开1工位气缸门
+	dim value1 as integer
+	'判断当前是否已经打开 已经打开则不要输出io信号
+	if IsOpen1() = 1 then '打开
+		return
+	else
+		value1 = 1 shl door1OperateIO
+		HL_SetMotorDo(value1, value1)
+		delay(100)
+		HL_SetMotorDo(value1, 0)
+		'等待开门完成
+		while IsOpen1() = 0
+			
+		end while
+	end if
+end function
+
+function OpenGasDoor2()'打开2工位气缸门
+	dim value1 as integer
+	'判断当前是否已经打开 已经打开则不要输出io信号
+	if IsOpen2() = 1 then '打开
+		return
+	else
+		value1 = 1 shl door2OperateIO
+		HL_SetMotorDo(value1, value1)
+		delay(100)
+		HL_SetMotorDo(value1, 0)
+		'等待开门完成
+		while IsOpen2() = 0
+			
+		end while
+	end if
+end function
+
+function CloseGasDoor1()'关闭1工位气缸门
+	dim value1 as integer
+	'判断当前是否已经打开 已经打开则输出io信号
+	if IsOpen1() = 0 then '关闭
+		return
+	else
+		value1 = 1 shl door1OperateIO
+		HL_SetMotorDo(value1, value1)
+		'等待关闭完成
+		while IsClose1() = 1
+			
+		end while
+		delay(100)
+		HL_SetMotorDo(value1, 0)
+		delay(1000)
+	end if
+end function
+
+function CloseGasDoor2()'关闭 2工位气缸门
+	dim value1 as integer
+	'判断当前是否已经打开 已经打开则输出io信号
+	if IsOpen1() = 0 then '关闭
+		return
+	else
+		value1 = 1 shl door2OperateIO
+		HL_SetMotorDo(value1, value1)
+		'等待关闭完成
+		while IsClose2() = 1
+			
+		end while
+		delay(100)
+		HL_SetMotorDo(value1, 0)
+		delay(1000)
+	end if
+
+end function
+
+function OpenGasDoorAll()'打开所有气动门
+	dim value1 as integer
+	'判断当前是否已经打开 已经打开则不要输出io信号
+	if IsOpen1() = 1 then '打开
+	else
+		value1 = 1 shl door1OperateIO
+		HL_SetMotorDo(value1, value1)
+	end if 
+	delay(500)
+	if IsOpen2() = 1 then '打开
+	else
+		value1 = 1 shl door2OperateIO
+		HL_SetMotorDo(value1, value1)
+	end if 
+	
+	delay(500)
+	value1 = 1 shl door1OperateIO
+	HL_SetMotorDo(value1, 0)
+	delay(500)
+	value1 = 1 shl door2OperateIO
+	HL_SetMotorDo(value1, 0)
+	
+	while IsOpen1() = 0	
+	end while
+	while IsOpen2() = 0	
+	end while
+end function
+
+function CloseGasDoorAll()'关闭所有气动门
+	dim value1 as integer
+	'判断当前是否已经打开 已经打开则输出io信号
+	if IsOpen1() = 1 then '关闭
+		value1 = 1 shl door1OperateIO
+		HL_SetMotorDo(value1, value1)
+	end if
+	delay(500)
+	if IsOpen2() = 1 then '关闭
+		value1 = 1 shl door2OperateIO
+		HL_SetMotorDo(value1, value1)
+	end if
+	delay(500)
+	value1 = 1 shl door1OperateIO
+	HL_SetMotorDo(value1, 0)
+	delay(500)
+	value1 = 1 shl door2OperateIO
+	HL_SetMotorDo(value1, 0)
+	
+	while IsClose1() = 0	
+	end while
+	while IsClose2() = 0	
+	end while
+end function

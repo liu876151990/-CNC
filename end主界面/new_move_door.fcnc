@@ -1,0 +1,182 @@
+'x1 x
+'y1 y
+'x2 z
+'y2 a
+dim value1 as integer
+dim station1WeldingFlg as integer '工位1已经进入可以焊接
+dim station2WeldingFlg as integer '工位2已经进入准备焊接
+dim axisX as integer '运动库函数使用时对应轴号从0开始
+dim axisY as integer
+dim axisZ as integer
+dim axisA as integer
+
+dim vel as integer '整体速度
+dim acc as integer '整体加速度
+
+' dim stopSafeX_1 as double '1号工位完成后停止时X1的安全位置
+' dim stopSafeY_1 as double '1号工位完成后停止时Y1的安全位置
+' dim stopSafeZ_2 as double '2号工位完成后停止时X2的安全位置
+' dim stopSafeA_2 as double '2号工位完成后停止时Y2的安全位置
+
+' dim inSafeX_1 as double '1号工位进入后X1的安全位置
+' dim inSafeY_1 as double '1号工位进入后Y1的安全位置
+' dim inSafeZ_2 as double '2号工位进入后X2的安全位置
+' dim inSafeA_2 as double '2号工位进入后Y2的安全位置
+
+' stopSafeX_1 = 0
+' stopSafeY_1 = -5
+' stopSafeZ_2 = 0
+' stopSafeA_2 = -30
+
+' inSafeX_1 = 0
+' inSafeY_1 = 262
+' inSafeZ_2 = 0
+' inSafeA_2 = 234
+
+
+axisX = 0
+axisY = 1
+axisZ = 2
+axisA = 3
+
+vel = 150
+acc = 300
+
+'0没就绪 1就绪
+station1WeldingFlg = 0
+station2WeldingFlg = 0
+InitIO()
+
+OpenGasDoorAll()
+'HL_TKSearchHome()
+'AllAxisIsStop()
+'AllAxisIsStop()
+HL_AxisMove(axisX,acc,30,vel,0)
+HL_AxisMove(axisZ,acc,30,vel,0)
+AxisIsStop(axisX)
+AxisIsStop(axisZ)
+HL_AxisMove(axisY,acc,30,vel,-5)
+HL_AxisMove(axisA,acc,30,vel,-30)
+AxisIsStop(axisA)
+AxisIsStop(axisY)
+value1 = 1 shl 5
+HL_SetOutPut(value1, 0)
+value1 = 1 shl 6
+HL_SetOutPut(value1, 0)
+
+while IsCompileStop() = 0 
+
+	UpdateTKIO() '更新io
+	if TKOUT5 = 1 then '1 号工位预备焊接
+		if station1WeldingFlg = 0 then
+			'开门
+			OpenGasDoor1()
+		end if
+		'y轴进入
+		HL_AxisMove(axisY,acc,30,vel,340)
+		AxisIsStop(axisY)
+		'关所有门
+		CloseGasDoorAll()
+		'1工位轴到焊接位
+		HL_AxisMove(axisY,acc,30,vel,512)
+		AxisIsStop(axisY)
+		'-----------1号工位------此处添加要调用的焊接文挡---------------------
+		'焊接 'HL_MarkDoc(0)
+		
+		'-----------1号工位------此处上面添加要调用的焊接文挡-----------------
+		'退出开门
+		'2工位是否需要焊接
+		'1工位X到中心 y到预备退出位置
+		HL_AxisMove(axisX,acc,30,vel,0)
+		HL_AxisMove(axisY,acc,30,vel,262)
+		AxisIsStop(axisX)
+		AxisIsStop(axisY)
+		
+		UpdateTKIO()
+		if TKOUT6 = 1 then 
+			'两边同时开门
+			OpenGasDoorAll()
+			'1退出2进入
+			HL_AxisMove(axisY,acc,30,vel,-5)
+			HL_AxisMove(axisA,acc,30,vel,234)
+			AxisIsStop(axisY)
+			AxisIsStop(axisA)
+			
+			station2WeldingFlg = 1
+		else '单边开门
+			'1工位开门
+			OpenGasDoor1()
+			'1退出
+			'HL_MarkDoc(5)'G00 Y0
+			HL_AxisMove(axisY,acc,30,vel,-5)
+			AxisIsStop(axisY)
+			
+		end if
+		'到达安全位置,设置1号工位完成
+		value1 = 1 shl 5
+		HL_SetOutPut(value1, 0)
+		station1WeldingFlg = 0
+	else if TKOUT6 = 1 then '2 号工位预备焊接
+		if station2WeldingFlg = 0 then
+			'开门
+			OpenGasDoor2()
+		end if
+		'y轴进入
+		'HL_MarkDoc(6)'G00 Aacc
+		HL_AxisMove(axisA,acc,30,vel,234)
+		AxisIsStop(axisA)
+		'关所有门
+		CloseGasDoorAll()
+		'2工位轴到焊接位
+		'HL_MarkDoc(7)'G00 Z0 A210
+		HL_AxisMove(axisA,acc,30,vel,348)
+		AxisIsStop(axisA)
+		'-----------2号工位------此处添加要调用的焊接文挡---------------------
+		'焊接 'HL_MarkDoc(0)
+		
+		'-----------2号工位------此处上面添加要调用的焊接文挡-----------------
+		'退出开门
+		'2工位是否需要焊接
+		'2工位X到中心 y到预备退出位置
+		'HL_MarkDoc(8)'G00 Z0 Aacc
+		HL_AxisMove(axisZ,acc,30,vel,0)
+		HL_AxisMove(axisA,acc,30,vel,234)
+		AxisIsStop(axisZ)
+		AxisIsStop(axisA)
+
+		UpdateTKIO()
+		if TKOUT5 = 1 then 
+			'两边同时开门
+			OpenGasDoorAll()
+			'2退出1进入
+			'HL_MarkDoc(9)'G00 Y251 A0
+			HL_AxisMove(axisY,acc,30,vel,340)
+			HL_AxisMove(axisA,acc,30,vel,-30)
+			AxisIsStop(axisY)
+			AxisIsStop(axisA)
+			station1WeldingFlg = 1
+		else '单边开门
+			'2工位开门
+			OpenGasDoor2()
+			'2退出
+			'HL_MarkDoc(10)'G00 A0
+			HL_AxisMove(axisA,acc,30,vel,-30)
+			AxisIsStop(axisA)
+		end if
+		'到达安全位置,设置1号工位完成
+		value1 = 1 shl 6
+		HL_SetOutPut(value1, 0)
+		station2WeldingFlg = 0
+	end if 
+end while
+
+OpenGasDoorAll()'打开所有门
+'回到两端安全位置
+HL_AxisMove(axisX,acc,30,vel,0)
+HL_AxisMove(axisZ,acc,30,vel,0)
+AxisIsStop(axisX)
+AxisIsStop(axisZ)
+HL_AxisMove(axisY,acc,30,vel,-5)
+HL_AxisMove(axisA,acc,30,vel,-30)
+AxisIsStop(axisA)
+AxisIsStop(axisY)
